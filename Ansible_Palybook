@@ -1,0 +1,34 @@
+---
+
+  -hosts: all
+   become: true
+   tasks:
+   
+   -name:install packages on centos
+    dnf:
+	  name:
+	   -httpd
+	   -php
+	  state: latest
+	when: ansible_distrubation == "centos"
+	
+	
+   -name: copy the files to dofferent location
+     copy:
+	   src: /opt/ansible.cfg,/opt/inventory
+	   dest: /home/pp3760/
+	   owner: root
+	   group: root
+	   mode: 0644
+	   
+	   
+   -name: variables test and tags
+    tags: centos,file,httpd
+	dnf:
+	  update-only: yes
+	  update-cache: yes
+	  name:
+	  -"{dns_package}"
+	  -"{nfs_package}"
+	  state: latest
+	when: ansible_distrubation == "centos"
