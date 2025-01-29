@@ -1,0 +1,35 @@
+VMware ESXi, 7.0.3, 20842708
+VMware ESXi, 7.0.3, 23794027
+Mt_Rushm0re!
+QKY552ME
+lognin to vc
+goto dmz
+ select esxi
+	shutdown the all the vms
+copy the esxi host name (note the esxi current version)
+	https://esxi-r.domain
+	login with username:administrator
+	password:token number form excel
+go to remote console --> remote console 
+	choose html 5
+	lunch console
+	click on cricle and add the local iso 
+	 choose local iso form c:/tmp/file
+f12 to shutdown/restart the server 
+	console open 
+		username: root
+		password: B@bylon5
+		
+		f11 for resetart
+		
+		once patchs update will reboot the machine
+		(loadning ESXi installer)
+asking countinue for next window (accept linces)
+	choose update and enter f11 for  update
+	enater 	updates going to apply 
+	enter reboot 
+		rebooting the machine
+		
+		update completed successfully.
+now this time loadin os from vmware esxi (before its esxi)
+successfully up
