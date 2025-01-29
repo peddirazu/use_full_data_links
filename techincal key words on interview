@@ -1,0 +1,27 @@
+spuffing
+dns zones
+dns split
+split zons
+dynamic dns
+static dns
+to clear cache(zonal infomation) we have to set some hours to refresh the data in the dns
+cdn
+master slaves dns
+DR setup
+vmdk to vmhk not able to load machine
+ssh issues
+
+local dns
+external dns
+d-dos attack
+how we can block access for public dns server from private local dns 
+dns cacheing
+A record 
+PTR record
+
+
+named.conf
+search in the resolve.conf
+if we have multiple DNS servers the serch will help
+what is root name server.
+server not able to connect to the repos 
