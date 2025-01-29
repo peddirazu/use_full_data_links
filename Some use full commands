@@ -1,1 +1,2 @@
 egrep 'halt|shutdown|sync' /etc/passwd
+alias cls='clear' --> ./bash_profile
