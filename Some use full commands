@@ -1,0 +1,1 @@
+egrep 'halt|shutdown|sync' /etc/passwd
