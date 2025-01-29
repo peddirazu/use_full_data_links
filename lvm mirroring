@@ -1,0 +1,45 @@
+LVM Mirroring
+---------------
+
+raid 0,1,5,6,1+0
+falt tolrence
+minimum 2 disk requeried
+pvs
+/dev/sda
+/dev/sdb
+/dev/sdc
+/dev/sdd
+vgcreate mirrorvg /dev/sda /dev/sdb
+vgs
+mirrorvg
+lvcreate -L 512M -n /dev/mirrorvg/mirrorLV
+
+mkfs.xfs /dev/mirrorvg/mirrorLV
+
+mount mirrorLV
+cd /mirrorLV;touch file{1..100}.txt
+
+lvs
+
+lvconvert -m1 --corelog -b /dev/mirrorvg/mirrorLV /dev/sdd 
+m --> means mirroring 1 means raid
+corelog will take some space in the cpu and ram for mirroring 
+b base prompt background
+
+lvs -a -o +devices |grep  mirroring
+
+
+
+if you wanted to remove and check the data in the /dev/sdd 
+
+lvconvert -m0 /dev/mirrorvg/mirrorLV /dev/sdd
+lvs 
+lvs -a -o +devices |grep  mirroring
+
+ls -l /mirrorLV
+file1..100.txt data  is there 
+
+
+if you wanted to chnage mirroring 10+10
+#mirroring 10+10
+#Datacenter A+Datacenter B
