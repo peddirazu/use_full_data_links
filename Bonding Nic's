@@ -1,0 +1,73 @@
+Nic Bonding 
+falt tolrence 
+nic teaming its for windows part
+
+bonding
+
+total 7 modes are bonds
+
+mode=0 load balanceing 
+mode=1 Active backup
+mode=2
+mode=3
+mode=4
+mode=5
+mode=6
+
+ifconfing
+eth0 eth1 bond0
+lspci|grep -i ether
+cat /etc/sysconfig/network-scripts/
+ifcfg-bond0
+cd /etc/sysconfig/network-scripts 
+cd /etc/udev/rules.d
+cat 70-persistent-net.rules
+
+
+cat ifcfg-eth0
+DEVICE="eth0"
+HWADDR="00:0C:29:6A:7F:98"
+NM_CONTROLLED="no"
+ONBOOT="yes"
+BOOTPROTO="none"
+MASTER=bond0
+SLAVE=yes
+TYPE=Ethernet
+
+cat ifcfg-eth1
+DEVICE="eth0"
+HWADDR="00:0D:28:6A:7F:98"
+NM_CONTROLLED="no"
+ONBOOT="yes"
+BOOTPROTO="none"
+MASTER=bond0
+SLAVE=yes
+TYPE=Ethernet
+
+cat ifcfg-bond0
+DEVICE=bond0
+IPADDR=192.168.169.129 or 192.168.169.129/24 (remove the network )
+NETMASK=255.255.255.0
+GATEWAY=192.168.169.1
+USERCTL=no
+BOOTPROTO=none
+ONBOOT=yes
+BONDING_OPTS=mode=0 miimon=100  (100 millisec to refresh)
+
+cat /proc/net/bonding/bond0
+
+show complete details
+
+
+cat ifcfg-bond1
+DEVICE=bond0
+IPADDR=192.168.169.129 or 192.168.169.129/24 (remove the network )
+NETMASK=255.255.255.0
+GATEWAY=192.168.169.1
+USERCTL=no
+BOOTPROTO=none
+ONBOOT=yes
+BONDING_OPTS=mode=1 miimon=100  (100 millisec to refresh) primary=eth1
+
+cat /etc/modprobe.d/modprobe.conf
+netstat -rn
